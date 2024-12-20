@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Data Collection Form</title>
+<style>
+    #gridContainer {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 10px;
+    }
+    
+    #gridContainer div {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<h2>Data Collection Form</h2>
+<form method="POST" action="/">
+    <label for="enrollNo">Enroll_No last 3 digits:</label>
+    <input type="text" id="enrollNo" name="enrollNo"><br><br>
+    <label for="class_no">Class:</label>
+    <input type="text" id="class_no" name="class_no"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<script src="{{script_url}}"></script>
+</body>
+</html>
