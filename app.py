@@ -66,37 +66,20 @@ def calculate_breakpoints(data_array):
 
 # Generates a seating grid based on start position and even/odd logic
 def generate_grid(start, is_even):
-    """
-    Creates a seating grid based on the start position and whether to populate even or odd indices.
 
-    Args:
-    - start (int): Starting enrollment number for the grid.
-    - is_even (bool): If True, populate even indices. If False, populate odd indices.
+    arr = [[0 for _ in range(10)] for _ in range(6)]  # Initialize a 6x10 grid with zeros
+    current = start
 
-    Returns:
-    - list: A 2D list representing the seating grid.
-    """
-    arr = [0] * (6 * 10)
-    if is_even:
-        arr[0] = start
-        for i in range(2, len(arr)):
-            if i % 2 != 0 or arr[i] > 55:
-                continue
-            arr[i] = arr[i - 2] + 1
-    else:
-        arr[1] = start
-        for i in range(2, len(arr)):
-            if i % 2 == 0 or arr[i] > 55:
-                continue
-            arr[i] = arr[i - 2] + 1
+    for col in range(10):  # Iterate over each column
+        for row in range(0, 6, 2):  # Fill alternating rows (0, 2, 4)
+            if current > 55:  # Stop if the enrollment exceeds the limit
+                break
+            arr[row][col] = convert_to_no(current, False)
+            current += 1
 
-    for i in range(len(arr)):
-        if arr[i] == 0 or arr[i] > 55:
-            arr[i] = 0
-            continue
-        arr[i] = convert_to_no(arr[i], False)
+    return arr
 
-    return np.array(arr).reshape((6, 10)).tolist()
+
 
 # Endpoint to generate grids for a given enrollment number
 @app.route('/generate-grid', methods=['POST'])
