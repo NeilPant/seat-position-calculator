@@ -1,0 +1,71 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.input-section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.input-section button:hover {
+  background-color: #0056b3;
+}
+
+.grids-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.grid-container {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-gap: 5px;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.grid-cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.grid-cell.highlight {
+  background-color: #ffeb3b;
+  color: black;
+  font-weight: bold;
+}
